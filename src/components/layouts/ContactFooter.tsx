@@ -1,50 +1,43 @@
-import Link from 'next/link'
+import Link from "next/link";
+
+function OutlinePill({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <Link
+      href={href}
+      className="inline-flex rounded-full bg-gradient-to-r from-[#6a2788] via-[#3d62c8] to-[#3aa4e4] p-[1.5px]"
+    >
+      <span className="rounded-full bg-white px-8 py-2.5 text-[12px] font-semibold tracking-[0.16em] text-[#4a4a4a] uppercase">
+        {children}
+      </span>
+    </Link>
+  );
+}
 
 export default function ContactFooter() {
   return (
-    <footer className="bg-white pt-16 border-t border-gray-100">
-      {/* 1. SECTION HUBUNGI KAMI */}
-      <div className="max-w-2xl mx-auto text-center px-6 pb-16">
-        <h2 className="text-xl md:text-2xl font-bold tracking-widest text-gray-800 uppercase mb-8">
-          HUBUNGI KAMI
-        </h2>
-
-        <div className="space-y-3 text-gray-600 text-sm md:text-base leading-relaxed">
-          <p className="font-bold text-gray-800 tracking-wider">KANTOR PUSAT</p>
-          <p>
-            Gedung D, Jl. M. Saidi No.1, RT.1/RW.2, Petukangan Selatan, <br className="hidden sm:block" />
-            Pesanggrahan, Jakarta Selatan
-          </p>
-          <p>
-            Phone: (+62) 812-3456-7890 / (+62) 21-1234-5678 <br />
-            Hotline: (+62) 811-1234-5678 (WA Only)
-          </p>
+    <footer>
+      <div className="rule" />
+      <div className="px-6 pt-16 pb-14 text-center">
+        <h2 className="section-title">Hubungi Kami</h2>
+        <div className="mx-auto mt-8 max-w-xl space-y-1.5 text-[14px] leading-relaxed text-[#4a4a4a]">
+          <p className="font-semibold tracking-[0.18em] text-[#4a4a4a]">KANTOR PUSAT</p>
+          <p>Gedung Ir. H. M. Suseno - Jl. R.P Soeroso No.6, Menteng, Jakarta Pusat</p>
+          <p>Phone : (+62 21) 398 38706 - Fax : (+62 21) 316 1701</p>
+          <p>Hotline : +6281519040071 / +62811998167</p>
         </div>
-
-        {/* Tombol Aksi (Lokasi Kami & Kirim Pesan) */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <Link
-            href="/lokasi"
-            className="w-full sm:w-auto bg-linear-to-r from-[#200A49]/90 via-[#1E40AF]/80 to-[#0284C7]/75 hover:opacity-90 text-white text-xs font-semibold px-8 py-3 rounded-full uppercase tracking-wider transition-all text-center shadow-md"
+            href="/hubungi-kami#lokasi"
+            className="brand-gradient rounded-full px-8 py-2.5 text-[12px] font-semibold tracking-[0.16em] uppercase"
           >
             Lokasi Kami
           </Link>
-
-          <Link
-            href="/hubungi-kami"
-            className="w-full sm:w-auto border-2 border-gray-400 hover:border-gray-700 text-gray-600 hover:text-gray-900 text-xs font-semibold px-8 py-3 rounded-full uppercase tracking-wider transition-all text-center"
-          >
-            Kirim Pesan
-          </Link>
+          <OutlinePill href="/hubungi-kami#pesan">Kirim Pesan</OutlinePill>
         </div>
       </div>
-
-      {/* 2. BOTTOM BAR COPYRIGHT */}
-      <div className="bg-linear-to-r from-[#200A49]/90 via-[#1E40AF]/80 to-[#0284C7]/75 text-white text-xs text-center py-4 px-6 border-t border-white/10">
-        <p className="opacity-80">
-          Copyright © {new Date().getFullYear()} - Klug. All rights reserved.
-        </p>
+      <div className="brand-gradient px-6 py-5 text-center text-[13px] text-white">
+        Copyright © 2020 - Inaklug Indonesia | Hak cipta dilindungi undang-undang
       </div>
     </footer>
-  )
+  );
 }

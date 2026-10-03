@@ -4,8 +4,6 @@ import Services from "@/components/home/Services";
 import Partners from "@/components/home/Partners";
 import CtaBanner from "@/components/home/CtaBanner";
 import Articles from "@/components/home/Articles";
-import ContactFooter from "@/components/layouts/ContactFooter";
-
 
 export default function Home() {
   return (
@@ -16,7 +14,6 @@ export default function Home() {
       <Partners />
       <CtaBanner />
       <Articles />
-      <ContactFooter />
     </div>
   );
 }

@@ -1,82 +1,39 @@
-import Image from 'next/image'
+import Link from "next/link";
+import Photo from "@/components/Photo";
 
-// 1. Definisikan data layanan agar kode rapi dan modular
-interface ServiceItem {
-  id: number
-  title: string
-  image: string
-}
-
-const servicesData: ServiceItem[] = [
-  {
-    id: 1,
-    title: 'Studi S1 - Bachelor',
-    image: '/assets/img/s1.jpg',
-  },
-  {
-    id: 2,
-    title: 'Studi S2 - Master',
-    image: '/assets/img/s2.png',
-  },
-  {
-    id: 3,
-    title: 'Studi S3 - Ph.D',
-    image: '/assets/img/s3.png',
-  },
-  {
-    id: 4,
-    title: 'Kursus Bahasa Asing',
-    image: '/assets/img/kursus.png',
-  },
-  {
-    id: 5,
-    title: 'Study Tour',
-    image: '/assets/img/study-tour.png',
-  },
-  {
-    id: 6,
-    title: 'Ausbildung',
-    image: '/assets/img/ausbildung.jpg',
-  },
-]
+const services = [
+  { title: "Studi S1 - Bachelor", image: "/design/s1.png" },
+  { title: "Studi S2 - Master", image: "/design/s2.png" },
+  { title: "Studi S3 - Ph.D", image: "/design/s3.png" },
+  { title: "Kursus Bahasa Asing", image: "/design/kursus.png" },
+  { title: "Study Tour", image: "/design/tour.png" },
+  { title: "Ausbildung", image: "/design/ausbildung.png", href: "/layanan/ausbildung" },
+];
 
 export default function Services() {
   return (
-    <section className="py-16 bg-white px-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Judul Section */}
-        <h2 className="text-xl md:text-2xl font-bold tracking-widest text-gray-800 uppercase text-center mb-12">
-          LAYANAN KAMI
-        </h2>
-
-        {/* Grid 6 Card (1 kolom di HP, 2 di Tablet, 3 di Desktop) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {servicesData.map((service) => (
-            <div
-              key={service.id}
-              className="group relative h-64 md:h-72 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer"
-            >
-              {/* Gambar Background Card */}
-              <Image
-                src={service.image}
-                alt={service.title}
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-              />
-
-              {/* Gradient Overlay & Badge Teks di Kiri Bawah */}
-              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors" />
-
-              <div className="absolute bottom-4 left-0 max-w-[85%] bg-linear-to-r from-[#200A49]/90 via-[#1E40AF]/80 to-[#0284C7]/75 backdrop-blur-sm px-5 py-3 rounded-r-lg text-white shadow-lg border-y border-r border-white/20">
-                <span className="text-sm md:text-base font-semibold tracking-wide">
-                  {service.title}
-                </span>
-              </div>
+    <section className="px-6 pt-14 pb-4">
+      <div className="rule mb-14" />
+      <h2 className="section-title">Layanan Kami</h2>
+      <div className="mx-auto mt-10 grid max-w-[1120px] grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {services.map((service) => {
+          const image = (
+            <Photo src={service.image} alt={service.title} className="block h-auto w-full" />
+          );
+          if (service.href) {
+            return (
+              <Link key={service.title} href={service.href} className="block overflow-hidden rounded-[18px]">
+                {image}
+              </Link>
+            );
+          }
+          return (
+            <div key={service.title} className="overflow-hidden rounded-[18px]">
+              {image}
             </div>
-          ))}
-        </div>
+          );
+        })}
       </div>
     </section>
-  )
+  );
 }

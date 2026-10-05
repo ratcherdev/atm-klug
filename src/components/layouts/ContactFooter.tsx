@@ -4,7 +4,7 @@ function OutlinePill({ href, children }: { href: string; children: React.ReactNo
   return (
     <Link
       href={href}
-      className="inline-flex rounded-full bg-gradient-to-r from-[#6a2788] via-[#3d62c8] to-[#3aa4e4] p-[1.5px]"
+      className="inline-flex rounded-full bg-linear-to-r from-[#6a2788] via-[#3d62c8] to-[#3aa4e4] p-[1.5px]"
     >
       <span className="rounded-full bg-white px-8 py-2.5 text-[12px] font-semibold tracking-[0.16em] text-[#4a4a4a] uppercase">
         {children}

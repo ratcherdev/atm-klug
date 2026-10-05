@@ -25,10 +25,10 @@ export default function ArtikelPage() {
         <Photo src="/design/hero-artikel.jpg" alt={title} className="block h-auto w-full" />
       </Link>
 
-      <section className="mx-auto grid max-w-[820px] grid-cols-1 gap-8 px-6 pt-12 sm:grid-cols-2">
+      <section className="mx-auto grid max-w-205 grid-cols-1 gap-8 px-6 pt-12 sm:grid-cols-2">
         {featured.map((item) => (
           <Link key={item.image} href={detailHref} className="text-center">
-            <Photo src={item.image} alt="" className="aspect-[292/167] w-full rounded-[10px] object-cover" />
+            <Photo src={item.image} alt="" className="aspect-292/167 w-full rounded-[10px] object-cover" />
             <h2 className="mt-3 text-[14px] leading-snug font-medium text-[#4a4a4a]">{item.title}</h2>
           </Link>
         ))}
@@ -36,7 +36,7 @@ export default function ArtikelPage() {
 
       <div className="rule mt-12" />
 
-      <section className="mx-auto max-w-[820px] px-6 pt-10 pb-6">
+      <section className="mx-auto max-w-205 px-6 pt-10 pb-6">
         <h2 className="text-[13px] font-medium tracking-[0.22em] text-[#4a4a4a] uppercase">
           Artikel Terbaru
         </h2>
@@ -46,7 +46,7 @@ export default function ArtikelPage() {
               <Photo
                 src={image}
                 alt=""
-                className="h-[112px] w-[210px] shrink-0 rounded-[8px] object-cover"
+                className="h-28 w-52.5 shrink-0 rounded-lg object-cover"
               />
               <div className="pt-1">
                 <h3 className="text-[15px] leading-snug font-medium text-[#4a4a4a]">{title}</h3>
@@ -60,7 +60,7 @@ export default function ArtikelPage() {
           <span className="text-[#4a4a4a]" aria-hidden>
             ‹
           </span>
-          <span className="brand-gradient flex h-8 w-8 items-center justify-center rounded-full font-semibold">
+          <span className="brand-gradient flex h-8 w-8 items-center justify-center rounded-full font-semibold text-white">
             1
           </span>
           {[2, 3, 4, 5].map((page) => (

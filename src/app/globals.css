@@ -16,9 +16,9 @@ body {
 
 /* Kanvas prototipe 2732px (1366 × 2). Di zoom browser 50% ukurannya setara layar referensi. */
 .design-canvas {
-  width: 1366px;
+  /* width: 1366px; */
   margin-inline: auto;
-  zoom: 2;
+  /* zoom: 2; */
   background: #fff;
 }
 

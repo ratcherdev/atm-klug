@@ -49,7 +49,7 @@ export default function Navbar() {
         </nav>
 
         <div className="ml-auto hidden items-center gap-8 lg:flex">
-          <label className="relative block w-[190px]">
+          <label className="relative block w-47.5">
             <span className="sr-only">Ketik pencarian</span>
             <svg
               className="pointer-events-none absolute top-1/2 left-0 h-4 w-4 -translate-y-1/2 text-white/85"

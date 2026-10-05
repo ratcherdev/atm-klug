@@ -28,7 +28,7 @@ export default function ContactFooter() {
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <Link
             href="/hubungi-kami#lokasi"
-            className="brand-gradient rounded-full px-8 py-2.5 text-[12px] font-semibold tracking-[0.16em] uppercase"
+            className="brand-gradient rounded-full px-8 py-2.5 text-[12px] font-semibold tracking-[0.16em] uppercase text-white"
           >
             Lokasi Kami
           </Link>

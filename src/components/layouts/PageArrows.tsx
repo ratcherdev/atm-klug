@@ -27,11 +27,17 @@ function neighbors(pathname: string) {
 
 function Chevron({ direction }: { direction: "left" | "right" }) {
   return (
-    <svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" aria-hidden>
+    <svg
+      viewBox="0 0 24 24"
+      className="h-6 w-6 md:h-8 md:w-8 text-white stroke-[2.5]"
+      fill="none"
+      stroke="currentColor"
+      aria-hidden
+    >
       {direction === "left" ? (
-        <path d="M14.5 5.5 8 12l6.5 6.5" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M15 18l-6-6 6-6" strokeLinecap="round" strokeLinejoin="round" />
       ) : (
-        <path d="M9.5 5.5 16 12l-6.5 6.5" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" />
       )}
     </svg>
   );
@@ -43,17 +49,20 @@ export default function PageArrows() {
 
   return (
     <>
+      {/* Tombol Navigasi Kiri */}
       <Link
         href={prev}
         aria-label="Halaman sebelumnya"
-        className="fixed top-1/2 left-0 z-40 flex h-24 w-24 -translate-x-[68%] -translate-y-1/2 items-center justify-end rounded-full bg-[#2a2a2a]/40 pr-4 text-white opacity-40 transition-all duration-200 hover:-translate-x-[18%] hover:bg-[#2a2a2a] hover:opacity-100"
+        className="fixed top-1/2 left-0 z-50 flex h-32 w-36 -translate-y-1/2 translate-x-[-80%] items-center justify-end pr-4.5 rounded-full bg-black/40 text-white opacity-40 backdrop-blur-[2px] transition-all duration-300 ease-in-out hover:translate-x-[-70%] hover:bg-black/80 hover:opacity-100 focus:opacity-100 focus:outline-none"
       >
         <Chevron direction="left" />
       </Link>
+
+      {/* Tombol Navigasi Kanan */}
       <Link
         href={next}
         aria-label="Halaman berikutnya"
-        className="fixed top-1/2 right-0 z-40 flex h-24 w-24 translate-x-[68%] -translate-y-1/2 items-center justify-start rounded-full bg-[#2a2a2a]/40 pl-4 text-white opacity-40 transition-all duration-200 hover:translate-x-[18%] hover:bg-[#2a2a2a] hover:opacity-100"
+        className="fixed top-1/2 right-0 z-50 flex h-32 w-36 -translate-y-1/2 translate-x-[80%] items-center justify-start pl-4.5 rounded-full bg-black/40 text-white opacity-40 backdrop-blur-[2px] transition-all duration-300 ease-in-out hover:translate-x-[70%] hover:bg-black/80 hover:opacity-100 focus:opacity-100 focus:outline-none"
       >
         <Chevron direction="right" />
       </Link>

@@ -15,7 +15,7 @@ export default function Services() {
     <section className="px-6 pt-14 pb-4">
       <div className="rule mb-14" />
       <h2 className="section-title">Layanan Kami</h2>
-      <div className="mx-auto mt-10 grid max-w-[1120px] grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto mt-10 grid max-w-280 grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((service) => {
           const image = (
             <Photo src={service.image} alt={service.title} className="block h-auto w-full" />

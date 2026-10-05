@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -21,15 +22,18 @@ function isActive(pathname: string, href: string) {
 
 export default function Navbar() {
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <header className="brand-gradient sticky top-0 z-50 text-white">
-      <div className="flex h-20 items-center gap-6 px-8 lg:px-10">
+      <div className="flex h-20 items-center justify-between px-6 lg:px-10">
+        {/* Logo */}
         <Link href="/" className="shrink-0 text-[34px] leading-none font-medium tracking-wide">
           <span className="inline-block border-b-[2.5px] border-white pb-px">klu</span>g
         </Link>
 
-        <nav className="ml-6 hidden items-center gap-8 text-[14.5px] font-normal md:flex">
+        {/* Menu Navigasi Desktop */}
+        <nav className="hidden items-center gap-8 text-[14.5px] font-normal md:flex">
           {links.map((link) => {
             const active = isActive(pathname, link.href);
             return (
@@ -48,7 +52,8 @@ export default function Navbar() {
           })}
         </nav>
 
-        <div className="ml-auto hidden items-center gap-8 lg:flex">
+        {/* Pencarian & Tombol Daftar Desktop */}
+        <div className="hidden items-center gap-8 lg:flex">
           <label className="relative block w-47.5">
             <span className="sr-only">Ketik pencarian</span>
             <svg
@@ -70,20 +75,88 @@ export default function Navbar() {
 
           <Link
             href="/hubungi-kami"
-            className="rounded-full bg-[#195395] px-5 py-2.5 text-[12px] font-semibold tracking-wide whitespace-nowrap text-white shadow-sm"
+            className="rounded-full bg-[#195395] px-5 py-2.5 text-[12px] font-semibold tracking-wide whitespace-nowrap text-white shadow-sm hover:bg-[#144378] transition-colors"
           >
             DAFTAR ON-LINE
           </Link>
         </div>
+
+        {/* Tombol Toggle Hamburger (Tampil di Mobile/Tablet) */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          type="button"
+          aria-label={isOpen ? "Tutup menu" : "Buka menu"}
+          className="flex h-10 w-10 items-center justify-center rounded-lg p-2 hover:bg-white/10 md:hidden focus:outline-none"
+        >
+          {isOpen ? (
+            /* Ikon Silang (X) */
+            <svg viewBox="0 0 24 24" className="h-6 w-6 stroke-white" fill="none" stroke="currentColor">
+              <path d="M6 18L18 6M6 6l12 12" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          ) : (
+            /* Ikon Hamburger (3 Garis) */
+            <svg viewBox="0 0 24 24" className="h-6 w-6 stroke-white" fill="none" stroke="currentColor">
+              <path d="M4 6h16M4 12h16M4 18h16" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          )}
+        </button>
       </div>
 
-      <nav className="flex gap-4 overflow-x-auto px-6 pb-3 text-[13px] md:hidden">
-        {links.map((link) => (
-          <Link key={link.href} href={link.href} className="shrink-0 whitespace-nowrap">
-            {link.label}
-          </Link>
-        ))}
-      </nav>
+      {/* Dropdown Menu Mobile */}
+      {isOpen && (
+        <div className="border-t border-white/10 bg-[#200A49]/95 backdrop-blur-md px-6 py-6 md:hidden">
+          {/* Tautan Navigasi Mobile */}
+          <nav className="flex flex-col gap-4 text-[15px] font-medium">
+            {links.map((link) => {
+              const active = isActive(pathname, link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`py-1 transition-colors ${
+                    active
+                      ? "border-l-2 border-white pl-3 font-semibold text-white"
+                      : "opacity-85 hover:opacity-100 text-white/90"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </nav>
+
+          {/* Form Pencarian & Tombol Aksi Mobile */}
+          <div className="mt-6 pt-4 border-t border-white/15">
+            <label className="relative block w-full mb-5">
+              <span className="sr-only">Ketik pencarian</span>
+              <svg
+                className="pointer-events-none absolute top-1/2 left-0 h-4 w-4 -translate-y-1/2 text-white/85"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                aria-hidden
+              >
+                <circle cx="11" cy="11" r="6.5" strokeWidth="1.7" />
+                <path d="M16 16.5 20.5 21" strokeWidth="1.7" strokeLinecap="round" />
+              </svg>
+              <input
+                type="search"
+                placeholder="Ketik pencarian"
+                className="w-full border-b border-white/80 bg-transparent py-1.5 pr-2 pl-6 text-[13px] text-white placeholder:text-white/75 focus:border-white focus:outline-none"
+              />
+            </label>
+
+            <Link
+              href="/hubungi-kami"
+              onClick={() => setIsOpen(false)}
+              className="inline-block w-full text-center rounded-full bg-[#195395] px-5 py-2.5 text-[12px] font-semibold tracking-wide text-white shadow-sm hover:bg-[#144378] transition-colors"
+            >
+              DAFTAR ON-LINE
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

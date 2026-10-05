@@ -17,7 +17,7 @@ export default function AusbildungPage() {
   return (
     <div>
       <Photo src="/design/hero-ausbildung.jpg" alt="Ausbildung" className="block h-auto w-full" />
-      <article className="mx-auto max-w-[860px] px-8 pt-16 pb-12">
+      <article className="mx-auto max-w-215 px-8 pt-16 pb-12">
         <h2 className="text-center text-[18px] font-semibold tracking-[0.22em] text-[#4a4a4a] uppercase">
           Apa itu Ausbildung?
         </h2>

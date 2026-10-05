@@ -14,7 +14,7 @@ export default function LayananKamiPage() {
   return (
     <div>
       <Photo src="/design/hero-layanan.jpg" alt="Layanan Kami" className="block h-auto w-full" />
-      <section className="mx-auto grid max-w-[1120px] grid-cols-1 gap-5 px-6 py-14 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="mx-auto grid max-w-280 grid-cols-1 gap-5 px-6 py-14 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((service) => {
           const image = (
             <Photo src={service.image} alt={service.title} className="block h-auto w-full" />

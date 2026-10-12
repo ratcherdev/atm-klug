@@ -19,9 +19,9 @@ export default function HubungiKamiPage() {
 
   return (
     <div>
-      <Photo src="/design/hero-hubungi.jpg" alt="Hubungi Kami" className="block h-auto w-full" />
+      <Photo src="/design/hero-hubungi.jpg" alt="Hubungi Kami" className="block h-48 md:h-full w-full" />
 
-      <div className="mx-auto max-w-[860px] px-8 pt-16 pb-8">
+      <div className="mx-auto max-w-215 px-8 pt-16 pb-8">
         <section id="pesan">
           <h2 className="text-[18px] font-semibold tracking-[0.22em] text-[#4a4a4a] uppercase">
             Kirim Pesan

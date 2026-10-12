@@ -22,7 +22,7 @@ export default function ArtikelPage() {
   return (
     <div>
       <Link href={detailHref} className="block">
-        <Photo src="/design/hero-artikel.jpg" alt={title} className="block h-auto w-full" />
+        <Photo src="/design/hero-artikel.jpg" alt={title} className="block h-48 md:h-full w-full" />
       </Link>
 
       <section className="mx-auto grid max-w-205 grid-cols-1 gap-8 px-6 pt-12 sm:grid-cols-2">

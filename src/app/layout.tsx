@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="id" className={poppins.variable}>
       <body className="bg-white font-sans text-[#4a4a4a] antialiased">
-        <div className="design-canvas min-h-screen">
+        <div className="min-h-screen">
           <Navbar />
           <main>{children}</main>
           <ContactFooter />

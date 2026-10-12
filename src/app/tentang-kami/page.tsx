@@ -4,7 +4,9 @@ import Photo from "@/components/Photo";
 export default function TentangKamiPage() {
   return (
     <div>
-      <Photo src="/design/hero-tentang.jpg" alt="Tentang Kami" className="block h-auto w-full" />
+      <section className="relative">
+        <Photo src="/design/hero-tentang.jpg" alt="Tentang Kami" className="block h-48 md:h-full w-full" />
+      </section>
 
       <section className="mx-auto max-w-230 px-8 pt-14 pb-6">
         <h2 className="text-[15px] font-medium tracking-[0.28em] text-[#4a4a4a] uppercase">Profil</h2>
@@ -42,7 +44,7 @@ export default function TentangKamiPage() {
         </article>
       </section>
 
-      <div className="mx-auto max-w-230 px-8 pb-14">
+      <div className="mx-auto max-w-230 px-8 pb-14 justify-center text-center">
         <Link
           href="/layanan-kami"
           className="inline-flex rounded-full bg-linear-to-r from-[#6a2788] via-[#3d62c8] to-[#3aa4e4] p-[1.5px]"
